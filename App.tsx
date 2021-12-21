@@ -9,9 +9,9 @@
  */
 
 import React from 'react';
-import {NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {LoadingScreen} from "./src/components/screens/LoadingScreen";
+import { LoadingScreen } from './src/components/screens/LoadingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,10 +19,10 @@ const App = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-				<Stack.Screen 
-					name={'Loading'} 
+				<Stack.Screen
+					name={'Loading'}
 					component={LoadingScreen}
-					options={{title: 'Loading'}}
+					options={{ title: 'Loading' }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
