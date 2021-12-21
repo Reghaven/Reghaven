@@ -8,32 +8,14 @@
  * @format
  */
 
-import React, {Component, ComponentType, ReactElement} from 'react';
-import {
-	StyleSheet,
-	Text,
-	useColorScheme,
-	View,
-} from 'react-native';
-
-import {NavigationContainer, useNavigation} from "@react-navigation/native";
+import React from 'react';
+import {NavigationContainer} from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {LoadingScreen} from "./src/components/screens/LoadingScreen";
 
 const Stack = createNativeStackNavigator();
 
-export function LoadingScreen() {
-	const navigation = useNavigation();
-	
-	return (
-		<View>
-			<Text>Loading</Text>
-		</View>
-	);
-}
-
 const App = () => {
-	const isDarkMode = useColorScheme() === 'dark';
-
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
