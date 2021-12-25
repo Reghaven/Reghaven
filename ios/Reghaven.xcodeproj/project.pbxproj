@@ -14,6 +14,7 @@
 		6172F2D35A4C3AA820D92908 /* libPods-Reghaven.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-Reghaven.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-Reghaven-ReghavenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-Reghaven-ReghavenTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EC9104AD883840D3A9902C68 /* TwinkleStar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68CB512B012A4756A9C016A1 /* TwinkleStar-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		C0A881CF5CF3F2B244570E2A /* Pods-Reghaven.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reghaven.debug.xcconfig"; path = "Target Support Files/Pods-Reghaven/Pods-Reghaven.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-Reghaven.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reghaven.release.xcconfig"; path = "Target Support Files/Pods-Reghaven/Pods-Reghaven.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		68CB512B012A4756A9C016A1 /* TwinkleStar-Regular.ttf */ = {isa = PBXFileReference; name = "TwinkleStar-Regular.ttf"; path = "../assets/fonts/TwinkleStar-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E233CBF5F47BEE60B243DCF8 /* Pods */,
+				79EA5B538FC5413C92016D76 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +151,15 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		79EA5B538FC5413C92016D76 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				68CB512B012A4756A9C016A1 /* TwinkleStar-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +257,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				EC9104AD883840D3A9902C68 /* TwinkleStar-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
