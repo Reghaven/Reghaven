@@ -1,13 +1,15 @@
-﻿import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, ToastAndroid, View } from 'react-native';
+﻿import { StyleSheet, Text, ToastAndroid, View } from 'react-native';
 import React from 'react';
 import { RButton } from '../common/RButton';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../types/RootStackParamList';
 
-export function LoadingScreen() {
-	const navigation = useNavigation();
+type Props = NativeStackScreenProps<RootStackParamList, 'LoadingScreen'>;
 
+export function LoadingScreen({ navigation }: Props) {
 	function onFinishLoad() {
 		ToastAndroid.show('done loading', 2000);
+		navigation.navigate('Dashboard');
 	}
 
 	return (
