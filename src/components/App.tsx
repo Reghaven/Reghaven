@@ -11,7 +11,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LoadingScreen } from './screens/LoadingScreen';
+import { LoadingScreen } from './screens/LoadingScreen/LoadingScreen';
 import { Dashboard } from './screens/Dashboard/Dashboard';
 
 const Stack = createNativeStackNavigator();
@@ -32,7 +32,7 @@ const App = () => {
 				<Stack.Screen
 					name={'Dashboard'}
 					component={Dashboard}
-					options={{ title: 'Dashboard' }}
+					options={{ title: 'Dashboard', headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

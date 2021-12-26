@@ -1,21 +1,20 @@
 ﻿import { StyleSheet, Text, ToastAndroid, View } from 'react-native';
-import React from 'react';
-import { RButton } from '../common/RButton';
+import React, { useEffect } from 'react';
+import { RButton } from '../../common/RButton';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../types/RootStackParamList';
+import { RootStackParamList } from '../../../types/RootStackParamList';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LoadingScreen'>;
 
 export function LoadingScreen({ navigation }: Props) {
-	function onFinishLoad() {
+	useEffect(() => {
 		ToastAndroid.show('done loading', 2000);
 		navigation.navigate('Dashboard');
-	}
+	}, []);
 
 	return (
 		<View style={Style.View}>
 			<Text style={Style.Text}>Loading</Text>
-			<RButton text={'Go'} onPress={onFinishLoad} />
 		</View>
 	);
 }
