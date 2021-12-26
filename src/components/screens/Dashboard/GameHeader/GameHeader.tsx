@@ -20,6 +20,7 @@ const Styles = StyleSheet.create({
 		shadowColor: 'black',
 		shadowOffset: { width: 1, height: 1 },
 		shadowOpacity: 0.5,
+		marginBottom: 10,
 	},
 	Illustration: {
 		height: 150,
