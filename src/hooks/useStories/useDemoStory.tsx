@@ -1,4 +1,4 @@
-﻿import { Place, Story } from 'lib-storyteller';
+﻿import { Asset, AssetType, Place, Story } from 'lib-storyteller';
 
 export function useDemoStory() {
 	const reghaven: Place = {
@@ -11,6 +11,11 @@ export function useDemoStory() {
 				isVisibleOnMap: false,
 			},
 		],
+	};
+
+	const researchAsset: Asset = {
+		name: 'Research',
+		type: AssetType.Normal,
 	};
 
 	const demoStory: Story = {
@@ -32,7 +37,7 @@ export function useDemoStory() {
 				onWin: {
 					text: "Next to the funnies and some local news about topics you don't understand, there are some interesting title stories.",
 					dissolvesAssets: [],
-					resolvesAssets: [],
+					resolvesAssets: [[researchAsset, 1]],
 					grantedAttributePoints: 1,
 				},
 				onFail: {
