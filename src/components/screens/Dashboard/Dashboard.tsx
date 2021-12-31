@@ -6,6 +6,7 @@ import { GameHeader } from './GameHeader/GameHeader';
 import { DecisionCard } from './DecisionCard/DecisionCard';
 import { AssetType, Decision } from 'lib-storyteller';
 import { BottomDrawer } from '../../common/BottomDrawer';
+import { Placeholder } from '../../common/Placeholder';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
 
@@ -92,6 +93,7 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 						'https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-13__880.jpg'
 					}
 				/>
+				<Placeholder height={70} />
 			</ScrollView>
 			<BottomDrawer title={'Character'}>
 				<Text>Demo Text</Text>
