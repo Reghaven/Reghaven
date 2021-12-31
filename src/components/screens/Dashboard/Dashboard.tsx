@@ -1,4 +1,4 @@
-﻿import { ScrollView, StyleSheet, View, Text } from 'react-native';
+﻿import { ScrollView, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../types/RootStackParamList';
@@ -7,6 +7,8 @@ import { DecisionCard } from './DecisionCard/DecisionCard';
 import { AssetType, Decision } from 'lib-storyteller';
 import { BottomDrawer } from '../../common/BottomDrawer';
 import { Placeholder } from '../../common/Placeholder';
+import { CharacterSheet } from './CharacterSheet/CharacterSheet';
+import { useCharacter } from '../../../hooks/useStoryteller/useCharacter';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
 
@@ -52,6 +54,8 @@ const DemoDecision: Decision = {
 };
 
 export function Dashboard({ navigation }: Props): React.ReactElement {
+	const [character] = useCharacter();
+
 	return (
 		<View style={Styles.Wrapper}>
 			<ScrollView style={Styles.Scroll}>
@@ -96,7 +100,7 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 				<Placeholder height={70} />
 			</ScrollView>
 			<BottomDrawer title={'Character'}>
-				<Text>Demo Text</Text>
+				<CharacterSheet character={character} />
 			</BottomDrawer>
 		</View>
 	);

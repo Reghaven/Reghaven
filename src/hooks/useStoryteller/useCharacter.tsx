@@ -2,8 +2,8 @@
 import { Character } from 'lib-storyteller';
 import { createNewCharacter } from './InitialCharacter.object';
 
-export function useStoryteller() {
-	const [character, setCharacter] = useState<Character>(createNewCharacter());
+export function useCharacter() {
+	const [character] = useState<Character>(createNewCharacter());
 
-	return { character };
+	return [character];
 }
