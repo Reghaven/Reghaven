@@ -73,6 +73,7 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 						'https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-13__880.jpg'
 					}
 				/>
+				<Placeholder height={70} />
 			</ScrollView>
 			<BottomDrawer title={'Character'}>
 				<CharacterSheet character={character} />
