@@ -2,6 +2,8 @@
 import { Character } from 'lib-storyteller';
 import { StyleSheet, ScrollView } from 'react-native';
 import { Title, TitleType } from '../../../common/Title';
+import { AttributeBox } from './Attribute/Attribute';
+import { at } from 'lodash';
 
 export function CharacterSheet(props: {
 	character: Character;
@@ -9,12 +11,14 @@ export function CharacterSheet(props: {
 	return (
 		<ScrollView style={Styles.Wrapper}>
 			<Title text={props.character.name} size={TitleType.Primary} />
+			<Title text={'Attributes'} size={TitleType.Secondary} />
+			{Array.from(props.character.attributes).map(attribute => (
+				<AttributeBox key={attribute[0]} attribute={attribute[1]} />
+			))}
 		</ScrollView>
 	);
 }
 
 const Styles = StyleSheet.create({
-	Wrapper: {
-		backgroundColor: 'red',
-	},
+	Wrapper: {},
 });
