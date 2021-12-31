@@ -9,7 +9,11 @@ export function AttributeBox(props: {
 }): React.ReactElement {
 	return (
 		<View style={Styles.Wrapper}>
-			<CircledNumber>{props.attribute.pointsCollected}</CircledNumber>
+			<CircledNumber>
+				{CharacterController.calculateAttributeLevel(
+					props.attribute.pointsCollected,
+				)}
+			</CircledNumber>
 			<RText>{props.attribute.name}</RText>
 		</View>
 	);
