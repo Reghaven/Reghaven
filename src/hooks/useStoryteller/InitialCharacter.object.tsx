@@ -9,7 +9,9 @@ import * as _ from 'lodash';
 
 const InitialCharacter: Character = {
 	name: 'Leonardo',
-	assets: new Map<string, IAssetInstance>([]),
+	assets: new Map<string, IAssetInstance>([
+		['Money', [{ name: 'Money', type: AssetType.Normal }, 20]],
+	]),
 	attributes: new Map<string, Attribute>([
 		[
 			'Strength',
