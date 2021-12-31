@@ -13,10 +13,10 @@ export function DecisionCard(props: {
 		<Card>
 			<View style={Styles.Wrapper}>
 				<View style={Styles.Row}>
-					<View>
+					<View style={Styles.ImageWrapper}>
 						<Image source={{ uri: props.imageUri }} style={Styles.Image} />
 					</View>
-					<View>
+					<View style={Styles.TextWrapper}>
 						<Text style={Styles.Title}>{props.decision.title}</Text>
 						<Text style={Styles.Text}>{props.decision.text}</Text>
 						{props.decision.attribute && (
@@ -49,8 +49,8 @@ const Styles = StyleSheet.create({
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'flex-start',
-		alignContent: 'flex-start',
-		justifyContent: 'flex-start',
+		alignContent: 'space-between',
+		justifyContent: 'space-between',
 		marginBottom: 10,
 	},
 	StretchedRow: {
@@ -65,17 +65,21 @@ const Styles = StyleSheet.create({
 		fontFamily: 'TwinkleStar-Regular',
 		fontSize: 20,
 	},
+	TextWrapper: {
+		flex: 1,
+	},
 	Text: {
 		color: 'white',
 		fontFamily: 'EBGaramond-VariableFont_wght',
 		fontSize: 20,
-		width: '50%',
 	},
-	Image: {
-		height: 100,
-		width: 100,
+	ImageWrapper: {
 		marginLeft: 10,
 		marginRight: 10,
+	},
+	Image: {
+		height: 80,
+		width: 80,
 		borderRadius: 20,
 	},
 });
