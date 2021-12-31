@@ -1,4 +1,4 @@
-﻿import { Story, Place } from 'lib-storyteller';
+﻿import { Place, Story } from 'lib-storyteller';
 
 export function useDemoStory() {
 	const reghaven: Place = {
@@ -31,14 +31,15 @@ export function useDemoStory() {
 				},
 				onWin: {
 					text: "Next to the funnies and some local news about topics you don't understand, there are some interesting title stories.",
-					winDissolvesAssets: [],
-					winResolveAssets: [],
+					dissolvesAssets: [],
+					resolvesAssets: [],
 					grantedAttributePoints: 1,
 				},
 				onFail: {
 					text: 'You remember that you cannot read',
-					failResolveAssets: [],
-					failDissolvesAssets: [],
+					resolvesAssets: [],
+					dissolvesAssets: [],
+					grantedAttributePoints: 0,
 				},
 				conditionsToUse: {
 					characterHasAssets: [],
