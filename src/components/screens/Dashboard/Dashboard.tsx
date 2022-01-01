@@ -8,7 +8,7 @@ import { AssetType, Decision } from 'lib-storyteller';
 import { BottomDrawer } from '../../common/BottomDrawer';
 import { Placeholder } from '../../common/Placeholder';
 import { CharacterSheet } from './CharacterSheet/CharacterSheet';
-import { useCharacter } from '../../../hooks/useStoryteller/useCharacter';
+import { useCharacter } from '../../../hooks/useCharacter/useCharacter';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
 
@@ -37,19 +37,22 @@ const DemoDecision: Decision = {
 	title: 'My Decision',
 	text: 'This is just a demo with no consequences, but the text is very long this time :)',
 	onWin: {
-		winResolveAssets: [],
-		winDissolvesAssets: [],
-		grantedAttributePoints: 1,
-		leadsToPlace: undefined,
-		leadsToLocation: undefined,
+		characterGainsAssetInstances: [],
+		characterLoosesAssetInstances: [],
+		providesAttributePoints: 1,
+		characterGoesToPlace: undefined,
+		characterGoesToLocation: undefined,
 		text: 'Yay, you won!',
+		characterWins: true,
 	},
 	onFail: {
-		failResolveAssets: [],
-		failDissolvesAssets: [],
-		leadsToLocation: undefined,
-		leadsToPlace: undefined,
+		characterGainsAssetInstances: [],
+		characterLoosesAssetInstances: [],
+		characterGoesToLocation: undefined,
+		characterGoesToPlace: undefined,
 		text: 'Oh no! You lost!',
+		characterWins: false,
+		providesAttributePoints: 0,
 	},
 };
 
