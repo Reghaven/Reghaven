@@ -1,18 +1,6 @@
-﻿import { Asset, AssetType, Place, Story } from 'lib-storyteller';
+﻿import { Asset, AssetType, Story } from 'lib-storyteller';
 
 export function useDemoStory() {
-	const reghaven: Place = {
-		name: 'Reghaven',
-		locations: [
-			{
-				name: 'Bus To Reghaven',
-				isUnlockedFromBeginning: true,
-				characterCanLeaveAnytime: false,
-				isVisibleOnMap: false,
-			},
-		],
-	};
-
 	const researchAsset: Asset = {
 		name: 'Research',
 		type: AssetType.Normal,
@@ -24,7 +12,7 @@ export function useDemoStory() {
 		conditionsToShow: {
 			characterHasAssets: [],
 			characterHasNotAssets: [],
-			characterIsAtPlace: reghaven,
+			characterIsAtPlace: 'Reghaven',
 		},
 		decisions: [
 			{
