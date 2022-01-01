@@ -7,11 +7,11 @@ export function useStories() {
 	const [decisions, setDecisions] = useState<Decision[]>();
 
 	function updateDecisionsForCharacter(character: Character): void {
-		GameController.retrievePossibleDecisions({
+		const fetchedDecisions = GameController.retrievePossibleDecisions({
 			stories: [demoStory],
 			character: character,
 		});
-		setDecisions(decisions);
+		setDecisions(fetchedDecisions);
 	}
 
 	return {

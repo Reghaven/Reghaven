@@ -18,7 +18,7 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 	const { decisions, updateDecisionsForCharacter } = useStories();
 	useEffect(() => {
 		updateDecisionsForCharacter(character);
-	}, [character, updateDecisionsForCharacter]);
+	}, []);
 
 	return (
 		<View style={Styles.Wrapper}>
@@ -34,6 +34,7 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 				{decisions &&
 					decisions.map(decision => (
 						<DecisionCard
+							key={decision.title}
 							decision={decision}
 							imageUri={
 								'https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-13__880.jpg'
