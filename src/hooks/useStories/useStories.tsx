@@ -1,12 +1,18 @@
 ﻿import { useState } from 'react';
-import { Character, Decision, Story } from 'lib-storyteller';
+import { Character, Decision, GameController } from 'lib-storyteller';
 import { useDemoStory } from './useDemoStory';
 
 export function useStories() {
 	const demoStory = useDemoStory();
-	const [decisions] = useState<Decision[]>();
+	const [decisions, setDecisions] = useState<Decision[]>();
 
-	function updateDecisionsForCharacter(character: Character): void {}
+	function updateDecisionsForCharacter(character: Character): void {
+		GameController.retrievePossibleDecisions({
+			stories: [demoStory],
+			character: character,
+		});
+		setDecisions(decisions);
+	}
 
 	return {
 		decisions,
