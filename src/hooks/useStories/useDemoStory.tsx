@@ -5,7 +5,7 @@ export function useDemoStory() {
 		name: 'Reghaven',
 		locations: [
 			{
-				name: 'Bus to Reghaven',
+				name: 'Bus To Reghaven',
 				isUnlockedFromBeginning: true,
 				characterCanLeaveAnytime: false,
 				isVisibleOnMap: false,
@@ -55,7 +55,7 @@ export function useDemoStory() {
 				conditionsToShow: {
 					characterHasAssets: [],
 					characterHasNotAssets: [],
-					characterIsAtLocation: 'Bus to Reghaven',
+					characterIsAtLocation: 'Bus To Reghaven',
 				},
 			},
 		],

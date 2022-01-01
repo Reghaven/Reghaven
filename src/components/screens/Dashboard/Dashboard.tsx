@@ -1,63 +1,24 @@
 ﻿import { ScrollView, StyleSheet, View } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../types/RootStackParamList';
 import { GameHeader } from './GameHeader/GameHeader';
 import { DecisionCard } from './DecisionCard/DecisionCard';
-import { AssetType, Decision } from 'lib-storyteller';
 import { BottomDrawer } from '../../common/BottomDrawer';
 import { Placeholder } from '../../common/Placeholder';
 import { CharacterSheet } from './CharacterSheet/CharacterSheet';
 import { useCharacter } from '../../../hooks/useCharacter/useCharacter';
+import { useStories } from '../../../hooks/useStories/useStories';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
 
-const DemoDecision: Decision = {
-	attribute: {
-		attributeToActivate: 'Strength',
-		attributeLevelFor100Percent: 1,
-	},
-	conditionsToUse: {
-		characterHasNotAssets: [],
-		characterHasAssets: [
-			[
-				{
-					name: 'Money',
-					type: AssetType.Normal,
-				},
-				1,
-			],
-		],
-	},
-	conditionsToShow: {
-		characterHasAssets: [],
-		characterHasNotAssets: [],
-		characterIsAtLocation: 'Bus To Reghaven',
-	},
-	title: 'My Decision',
-	text: 'This is just a demo with no consequences, but the text is very long this time :)',
-	onWin: {
-		characterGainsAssetInstances: [],
-		characterLoosesAssetInstances: [],
-		providesAttributePoints: 1,
-		characterGoesToPlace: undefined,
-		characterGoesToLocation: undefined,
-		text: 'Yay, you won!',
-		characterWins: true,
-	},
-	onFail: {
-		characterGainsAssetInstances: [],
-		characterLoosesAssetInstances: [],
-		characterGoesToLocation: undefined,
-		characterGoesToPlace: undefined,
-		text: 'Oh no! You lost!',
-		characterWins: false,
-		providesAttributePoints: 0,
-	},
-};
-
 export function Dashboard({ navigation }: Props): React.ReactElement {
 	const [character] = useCharacter();
+
+	const { decisions, updateDecisionsForCharacter } = useStories();
+	useEffect(() => {
+		updateDecisionsForCharacter(character);
+	}, [character, updateDecisionsForCharacter]);
 
 	return (
 		<View style={Styles.Wrapper}>
@@ -67,15 +28,18 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 						'https://cdnb.artstation.com/p/assets/images/images/002/987/601/large/mihail-bila-innsmouth-waterfront-small.jpg'
 					}
 					text={
-						'Lorem Ipsum Dolor Sit Amet Constitueur Lorem Ipsum Dolor Sit Amet Constitueur Lorem Ipsum Dolor Sit Amet Constitueur'
+						character.map.currentLocation + '/' + character.map.currentPlace
 					}
 				/>
-				<DecisionCard
-					decision={DemoDecision}
-					imageUri={
-						'https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-13__880.jpg'
-					}
-				/>
+				{decisions &&
+					decisions.map(decision => (
+						<DecisionCard
+							decision={decision}
+							imageUri={
+								'https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-13__880.jpg'
+							}
+						/>
+					))}
 				<Placeholder height={70} />
 			</ScrollView>
 			<BottomDrawer title={'Character'}>
