@@ -36,15 +36,17 @@ export function useDemoStory() {
 				},
 				onWin: {
 					text: "Next to the funnies and some local news about topics you don't understand, there are some interesting title stories.",
-					dissolvesAssets: [],
-					resolvesAssets: [[researchAsset, 1]],
-					grantedAttributePoints: 1,
+					characterLoosesAssetInstances: [],
+					characterGainsAssetInstances: [[researchAsset, 1]],
+					providesAttributePoints: 1,
+					characterWins: true,
 				},
 				onFail: {
 					text: 'You remember that you cannot read',
-					resolvesAssets: [],
-					dissolvesAssets: [],
-					grantedAttributePoints: 0,
+					characterGainsAssetInstances: [],
+					characterLoosesAssetInstances: [],
+					providesAttributePoints: 0,
+					characterWins: false,
 				},
 				conditionsToUse: {
 					characterHasAssets: [],
