@@ -13,6 +13,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoadingScreen } from './screens/LoadingScreen/LoadingScreen';
 import { Dashboard } from './screens/Dashboard/Dashboard';
+import { DecisionResults } from './screens/DecisionResults/DecisionResults';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,11 @@ const App = () => {
 					name={'Dashboard'}
 					component={Dashboard}
 					options={{ title: 'Dashboard', headerShown: false }}
+				/>
+				<Stack.Screen
+					name={'Results'}
+					component={DecisionResults}
+					options={{ title: 'Results', headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

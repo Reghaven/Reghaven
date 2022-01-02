@@ -22,6 +22,7 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 
 	function makeDecision(title: string) {
 		ToastAndroid.show(title, 100);
+		navigation.navigate('Results');
 	}
 
 	return (
