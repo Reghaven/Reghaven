@@ -6,8 +6,10 @@ import { RButton } from '../../../common/RButton';
 import { AssetList } from './AssetList/AssetList';
 
 export function DecisionCard(props: {
+	key?: string;
 	decision: Decision;
 	imageUri: string;
+	onPressGo?: (key: string) => unknown;
 }): React.ReactElement {
 	return (
 		<Card>
@@ -30,9 +32,11 @@ export function DecisionCard(props: {
 					<AssetList decision={props.decision} />
 					<RButton
 						text={'Go'}
-						onPress={() => {
-							ToastAndroid.show('Selected Decision', 1000);
-						}}
+						onPress={() =>
+							props.onPressGo
+								? props.onPressGo(props.decision.title)
+								: undefined
+						}
 					/>
 				</View>
 			</View>

@@ -1,4 +1,4 @@
-﻿import { ScrollView, StyleSheet, View } from 'react-native';
+﻿import { ScrollView, StyleSheet, ToastAndroid, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../types/RootStackParamList';
@@ -20,6 +20,10 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 		updateDecisionsForCharacter(character);
 	}, []);
 
+	function makeDecision(title: string) {
+		ToastAndroid.show(title, 100);
+	}
+
 	return (
 		<View style={Styles.Wrapper}>
 			<ScrollView style={Styles.Scroll}>
@@ -39,6 +43,7 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 							imageUri={
 								'https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-13__880.jpg'
 							}
+							onPressGo={makeDecision}
 						/>
 					))}
 				<Placeholder height={70} />
