@@ -11,6 +11,11 @@ const InitialCharacter: Character = {
 	name: 'Leonardo',
 	assets: new Map<string, IAssetInstance>([
 		['Money', [{ name: 'Money', type: AssetType.Normal }, 20]],
+		[
+			'Fathers Pocket Watch',
+			[{ name: 'Fathers Pocket Watch', type: AssetType.Normal }, 1],
+		],
+		['Fathers Letter', [{ name: 'Fathers Letter', type: AssetType.Normal }, 1]],
 	]),
 	attributes: new Map<string, Attribute>([
 		[
