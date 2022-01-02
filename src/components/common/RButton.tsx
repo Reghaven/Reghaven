@@ -14,19 +14,19 @@ export function RButton(props: {
 
 const styles = StyleSheet.create({
 	Button: {
-		height: 60,
+		height: 50,
 		borderRadius: 30,
 		backgroundColor: '#fff',
 		display: 'flex',
 		justifyContent: 'center',
 		alignContent: 'center',
 		alignItems: 'center',
-		minWidth: 100,
+		minWidth: 80,
 	},
 	Text: {
 		color: '#000',
-		marginLeft: 20,
-		marginRight: 20,
+		marginLeft: 10,
+		marginRight: 10,
 		fontSize: 30,
 		fontFamily: 'TwinkleStar-Regular',
 	},
