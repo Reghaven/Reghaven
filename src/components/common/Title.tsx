@@ -28,6 +28,7 @@ export function Title(props: {
 								return 28;
 						}
 					})(),
+					textAlign: props.size === TitleType.Primary ? 'center' : 'left',
 				},
 			]}>
 			{props.text}

@@ -1,6 +1,5 @@
 ﻿import { StyleSheet, Text, ToastAndroid, View } from 'react-native';
 import React, { useEffect } from 'react';
-import { RButton } from '../../common/RButton';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../types/RootStackParamList';
 

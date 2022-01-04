@@ -1,16 +1,37 @@
 ﻿import { Card } from '../../../common/Card';
-import { Decision } from 'lib-storyteller';
+import { CharacterController, Decision } from 'lib-storyteller';
 import { View, Text, StyleSheet, Image, ToastAndroid } from 'react-native';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { RButton } from '../../../common/RButton';
 import { AssetList } from './AssetList/AssetList';
+import { Placeholder } from '../../../common/Placeholder';
+import { at } from 'lodash';
 
 export function DecisionCard(props: {
 	key?: string;
 	decision: Decision;
 	imageUri: string;
-	onPressGo?: (key: string) => unknown;
+	onPressGo?: (decision: Decision) => unknown;
+	attrPointsChar?: number;
 }): React.ReactElement {
+	const [probability, setProbability] = useState<number>(0);
+
+	const calculateProbability = useCallback(() => {
+		const attrPointsChar = props.attrPointsChar;
+		const attrLevelDecision =
+			props.decision.attribute?.attributeLevelFor100Percent;
+		if (attrPointsChar && attrLevelDecision) {
+			const characterLevel =
+				CharacterController.calculateAttributeLevel(attrPointsChar);
+			if (characterLevel >= attrLevelDecision) {
+				setProbability(1.0);
+				return;
+			}
+			setProbability(characterLevel / attrLevelDecision);
+		}
+	}, [props]);
+	useEffect(() => calculateProbability(), [calculateProbability]);
+
 	return (
 		<Card>
 			<View style={Styles.Wrapper}>
@@ -21,9 +42,11 @@ export function DecisionCard(props: {
 					<View style={Styles.TextWrapper}>
 						<Text style={Styles.Title}>{props.decision.title}</Text>
 						<Text style={Styles.Text}>{props.decision.text}</Text>
+						<Placeholder height={20} />
 						{props.decision.attribute && (
 							<Text style={Styles.Text}>
-								Attribute: {props.decision.attribute.attributeToActivate}
+								Attr: {props.decision.attribute.attributeToActivate} -{' '}
+								{Math.floor(probability * 100)}%
 							</Text>
 						)}
 					</View>
@@ -33,9 +56,7 @@ export function DecisionCard(props: {
 					<RButton
 						text={'Go'}
 						onPress={() =>
-							props.onPressGo
-								? props.onPressGo(props.decision.title)
-								: undefined
+							props.onPressGo ? props.onPressGo(props.decision) : undefined
 						}
 					/>
 				</View>

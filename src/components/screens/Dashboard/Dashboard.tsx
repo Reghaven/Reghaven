@@ -1,4 +1,4 @@
-﻿import { ScrollView, StyleSheet, ToastAndroid, View } from 'react-native';
+﻿import { ScrollView, StyleSheet, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../types/RootStackParamList';
@@ -9,6 +9,7 @@ import { Placeholder } from '../../common/Placeholder';
 import { CharacterSheet } from './CharacterSheet/CharacterSheet';
 import { useCharacter } from '../../../hooks/useCharacter/useCharacter';
 import { useStories } from '../../../hooks/useStories/useStories';
+import { Decision } from 'lib-storyteller';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
 
@@ -20,9 +21,11 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 		updateDecisionsForCharacter(character);
 	}, []);
 
-	function makeDecision(title: string) {
-		ToastAndroid.show(title, 100);
-		navigation.navigate('Results');
+	function makeDecision(decision: Decision) {
+		navigation.navigate('Results', {
+			decision: decision,
+			character: character,
+		});
 	}
 
 	return (
@@ -45,6 +48,11 @@ export function Dashboard({ navigation }: Props): React.ReactElement {
 								'https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-13__880.jpg'
 							}
 							onPressGo={makeDecision}
+							attrPointsChar={
+								decision.attribute &&
+								character.attributes.get(decision.attribute.attributeToActivate)
+									?.pointsCollected
+							}
 						/>
 					))}
 				<Placeholder height={70} />

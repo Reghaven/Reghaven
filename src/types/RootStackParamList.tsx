@@ -1,5 +1,10 @@
-﻿export type RootStackParamList = {
+﻿import { Character, Decision } from 'lib-storyteller';
+
+export type RootStackParamList = {
 	LoadingScreen: undefined;
 	Dashboard: undefined;
-	Results: undefined;
+	Results: {
+		decision: Decision;
+		character: Character;
+	};
 };
